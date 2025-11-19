@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio Sergio Santos</title>
   <style>
     :root {
@@ -15,7 +15,7 @@
       --panel-dark: #111827;
       --text-dark: #e5e7eb;
       --muted-dark: #cbd5e1;
-      --primary-dark: #00d9ff; /* neon */
+      --primary-dark: #00d9ff;
       --glow-dark: 0 0 12px rgba(0, 217, 255, 0.6);
     }
 
@@ -25,9 +25,6 @@
       background: var(--bg-light);
       color: var(--text-light);
       transition: background 0.25s ease, color 0.25s ease;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
 
     header {
@@ -40,21 +37,14 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    .brand { font-weight: 700; font-size: 1.1rem; }
-    
     nav a {
       color: #fff;
       margin: 0 0.5rem;
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.95rem;
     }
-    nav a:hover { text-decoration: underline; }
-
-    .actions { display: flex; gap: 0.75rem; align-items: center; }
 
     .theme-toggle {
       background: #fff;
@@ -64,137 +54,69 @@
       border-radius: 6px;
       cursor: pointer;
       font-weight: 700;
-      transition: transform 0.15s ease;
     }
-    .theme-toggle:active { transform: scale(0.98); }
 
     .hero {
-      padding: 3rem 1.25rem;
+      padding: 2.5rem 1.25rem;
       text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
     }
     .hero h1 {
-      font-size: 2.2rem;
+      font-size: 2rem;
       color: var(--primary-light);
-      margin-bottom: 0.5rem;
     }
-    .hero p { color: var(--muted-light); font-size: 1.1rem; line-height: 1.6; }
-
-    .section-title { text-align: center; margin-top: 2rem; margin-bottom: 1.5rem; }
 
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
       padding: 1.25rem;
-      max-width: 1100px;
-      margin: 0 auto;
     }
 
     .card {
       background: #fff;
       border: 1px solid #e5e7eb;
       border-radius: 12px;
-      padding: 1.5rem;
-      transition: box-shadow 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      padding: 1rem;
     }
-    .card:hover {
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transform: translateY(-3px);
-      border-color: var(--primary-light);
-    }
-    .card h3 { margin: 0 0 0.5rem 0; color: var(--primary-light); font-size: 1.1rem; }
-    .card p { color: var(--muted-light); margin-bottom: 1rem; font-size: 0.9rem; flex-grow: 1; }
-    .card a { 
-      color: var(--primary-light); 
-      text-decoration: none; 
-      font-weight: 700; 
-      display: inline-block; 
-      margin-top: auto; 
-    }
-    .card a:hover { text-decoration: underline; }
-
-    /* Estilos da área de contato */
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-    .contact-btn {
-      background: var(--primary-light);
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: opacity 0.2s;
-    }
-    .contact-btn:hover { opacity: 0.9; }
+    .card h3 { color: var(--primary-light); }
+    .card ul { padding-left: 1rem; }
+    .card li { margin-bottom: 0.4rem; }
+    .card a { color: var(--primary-light); text-decoration: none; }
 
     footer {
-      background: #eee;
-      color: var(--muted-light);
+      background: var(--primary-light);
+      color: #fff;
       text-align: center;
-      padding: 1.5rem;
-      margin-top: auto; /* Empurra o footer para baixo */
-      font-size: 0.9rem;
+      padding: 1rem;
+      margin-top: 2rem;
     }
+    footer a { color: #fff; margin: 0 0.5rem; text-decoration: none; }
 
-    /* --- TEMA ESCURO --- */
+    /* Tema escuro */
     body.dark {
-      background: linear-gradient(135deg, #0b1220 0%, #0e1a2b 50%, #0b1220 100%);
+      background: var(--bg-dark);
       color: var(--text-dark);
     }
-    body.dark header { background: var(--panel-dark); border-bottom: 1px solid #1f2937; }
-    body.dark .brand { color: var(--text-dark); }
-    body.dark nav a { color: var(--text-dark); }
-    
-    body.dark .theme-toggle {
-      background: var(--primary-dark);
-      color: #001018;
-      box-shadow: var(--glow-dark);
-    }
-
+    body.dark header { background: var(--panel-dark); }
+    body.dark .theme-toggle { background: var(--primary-dark); color: #000; }
     body.dark .hero h1 { color: var(--primary-dark); text-shadow: var(--glow-dark); }
-    body.dark .hero p { color: var(--muted-dark); }
-
-    body.dark .card {
-      background: var(--panel-dark);
-      border: 1px solid #1f2937;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
-    }
-    body.dark .card:hover { border-color: var(--primary-dark); box-shadow: var(--glow-dark); }
+    body.dark .card { background: var(--panel-dark); border: 1px solid #1f2937; }
     body.dark .card h3 { color: var(--primary-dark); text-shadow: var(--glow-dark); }
-    body.dark .card p { color: var(--muted-dark); }
     body.dark .card a { color: var(--primary-dark); text-shadow: var(--glow-dark); }
-
-    body.dark .contact-btn {
-        background: var(--panel-dark);
-        border: 1px solid var(--primary-dark);
-        color: var(--primary-dark);
-        box-shadow: var(--glow-dark);
-    }
-    body.dark .contact-btn:hover { background: var(--primary-dark); color: #000; }
-
-    body.dark footer { background: #0b1526; border-top: 1px solid #1f2937; color: var(--muted-dark); }
+    body.dark footer { background: #0b1526; }
+    body.dark footer a { color: var(--primary-dark); text-shadow: var(--glow-dark); }
   </style>
 </head>
 <body>
   <header>
-    <div class="brand">Sergio Santos</div>
-    <div class="actions">
+    <h1>Sergio Santos - Portfólio</h1>
+    <div>
       <nav>
         <a href="#projetos">Projetos</a>
         <a href="#sobre">Sobre</a>
         <a href="#contato">Contato</a>
       </nav>
-      <button class="theme-toggle" id="themeBtn" aria-label="Alternar tema">Modo escuro</button>
+      <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">Modo escuro</button>
     </div>
   </header>
 
@@ -204,79 +126,46 @@
   </section>
 
   <section id="projetos">
-    <h2 class="section-title">🚀 Projetos</h2>
+    <h2 style="text-align:center;">🚀 Projetos</h2>
     <div class="projects">
-      <div class="card"><h3>01 - Java</h3><p>Projetos em Java com foco em backend e APIs.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>02 - Python</h3><p>Scripts e aplicações em Python para automação.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>03 - .NET C#</h3><p>Aplicações corporativas em C# e .NET.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>04 - Inteligência Artificial</h3><p>IA aplicada a dados e automação.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>05 - Machine Learning</h3><p>Modelos de ML para classificação e previsão.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>06 - Excel & Power BI</h3><p>Dashboards e relatórios interativos.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>07 - Grafos com Neo4J</h3><p>Análise de dados com grafos e Neo4J.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>08 - Ciência de Dados</h3><p>Exploração de dados e insights.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>09 - Cibersegurança</h3><p>Segurança da informação e proteção de dados.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>10 - Azure</h3><p>Projetos de Cloud com Microsoft Azure.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>11 - AWS</h3><p>Projetos de Cloud com Amazon Web Services.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>12 - HTML</h3><p>Estruturas semânticas e boas práticas.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>13 - CSS</h3><p>Estilos responsivos e modernos.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>14 - JavaScript</h3><p>Interatividade e dinâmica no frontend.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>15 - Lógica</h3><p>Exercícios e algoritmos de programação.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
-      <div class="card"><h3>16 - Apresentação</h3><p>Trajetória e objetivos profissionais.</p><a href="https://linkedin.com/in/santossergioluiz" target="_blank">Ver apresentação</a></div>
-      <div class="card"><h3>17 - LinkedIn</h3><p>Conecte-se comigo profissionalmente.</p><a href="https://linkedin.com/in/santossergioluiz" target="_blank">Visitar LinkedIn</a></div>
-    </div>
-  </section>
 
-  <section id="sobre" class="hero">
-    <h2 class="section-title">👨‍💻 Sobre mim</h2>
-    <p>Analista de Sistemas Sênior com experiência em sistemas críticos bancários e infraestrutura corporativa.
-       Em transição para Cloud, Python, IA e DevOps.</p>
-  </section>
+      <!-- 01 Java -->
+      <div class="card">
+        <h3>01 - Projetos em Java</h3>
+        <ul>
+          <li><a href="https://github.com/Santosdevbjj/javaNaPraticaPOO" target="_blank">Java na Prática POO</a></li>
+          <li><a href="https://github.com/Santosdevbjj/boardTarefasJava" target="_blank">Board de Tarefas Java</a></li>
+          <li><a href="https://github.com/Santosdevbjj/NTTDataDesafio" target="_blank">NTT Data Desafio</a></li>
+          <li><a href="https://github.com/Santosdevbjj/deployAppTonnie" target="_blank">Deploy App Tonnie</a></li>
+          <li><a href="https://github.com/Santosdevbjj/PadraoProjetoJava" target="_blank">Padrão Projeto Java</a></li>
+          <li><a href="https://github.com/Santosdevbjj/SudokuJogoJava" target="_blank">Sudoku Jogo Java</a></li>
+          <li><a href="https://github.com/Santosdevbjj/testUnitValidarApiRest" target="_blank">Testes Unitários API Rest</a></li>
+          <li><a href="https://github.com/Santosdevbjj/transacaoFinanceira" target="_blank">Transação Financeira</a></li>
+          <li><a href="https://github.com/Santosdevbjj/jogoDaForca" target="_blank">Jogo da Forca</a></li>
+          <li><a href="https://github.com/Santosdevbjj/pooDesafioJava" target="_blank">POO Desafio Java</a></li>
+          <li><a href="https://github.com/Santosdevbjj/criarEbook" target="_blank">Criar Ebook</a></li>
+        </ul>
+      </div>
 
-  <section id="contato" class="hero" style="padding-bottom: 3rem;">
-    <h2 class="section-title">📬 Vamos conversar?</h2>
-    <div class="contact-links">
-      <a href="mailto:santossergiorealbjj@outlook.com" class="contact-btn">📧 Enviar Email</a>
-      <a href="https://linkedin.com/in/santossergioluiz" target="_blank" class="contact-btn">💼 LinkedIn</a>
-      <a href="https://github.com/Santosdevbjj" target="_blank" class="contact-btn">🐙 GitHub</a>
-    </div>
-  </section>
+      <!-- 02 Python -->
+      <div class="card">
+        <h3>02 - Projetos em Python</h3>
+        <ul>
+          <li><a href="https://github.com/Santosdevbjj/apiWorkoutPython" target="_blank">API Workout Python</a></li>
+          <li><a href="https://github.com/Santosdevbjj/utilizaFerramentasGitHub" target="_blank">Utiliza Ferramentas GitHub</a></li>
+          <li><a href="https://github.com/Santosdevbjj/generosLiterarios" target="_blank">Gêneros Literários</a></li>
+          <li><a href="https://github.com/Santosdevbjj/apiBancaria" target="_blank">API Bancária</a></li>
+          <li><a href="https://github.com/Santosdevbjj/pacoteProcessImagem" target="_blank">Pacote Processamento de Imagem</a></li>
+          <li><a href="https://github.com/Santosdevbjj/primeiroCopiloto" target="_blank">Primeiro Copiloto</a></li>
+          <li><a href="https://github.com/Santosdevbjj/modelaSistemaBancPOO" target="_blank">Modelagem Sistema Bancário POO</a></li>
+          <li><a href="https://github.com/Santosdevbjj/sistemaBancario" target="_blank">Sistema Bancário</a></li>
+          <li><a href="https://github.com/Santosdevbjj/copilotoFluxoConversa" target="_blank">Copiloto Fluxo de Conversa</a></li>
+          <li><a href="https://github.com/Santosdevbjj/otimizaSistemaBancario" target="_blank">Otimização Sistema Bancário</a></li>
+        </ul>
+      </div>
 
-  <footer>
-    <p>&copy; 2024 Sergio Santos. Todos os direitos reservados.</p>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const themeBtn = document.getElementById('themeBtn');
-      
-      // Verifica preferência salva
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      const isDark = savedTheme === 'dark';
-      
-      // Aplica estado inicial
-      if (isDark) {
-        document.body.classList.add('dark');
-      }
-      updateButtonText(isDark);
-
-      // Adiciona evento de clique (CORREÇÃO PRINCIPAL)
-      if (themeBtn) {
-        themeBtn.addEventListener('click', toggleTheme);
-      }
-
-      function toggleTheme() {
-        const isDarkNow = document.body.classList.toggle('dark');
-        localStorage.setItem('theme', isDarkNow ? 'dark' : 'light');
-        updateButtonText(isDarkNow);
-      }
-
-      function updateButtonText(isDark) {
-        if (themeBtn) {
-          themeBtn.textContent = isDark ? 'Modo claro' : 'Modo escuro';
-          themeBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
-        }
-      }
-    });
-  </script>
-</body>
-</html>
+      <!-- 03 .NET C# -->
+      <div class="card">
+        <h3>03 - Projetos em .NET C#</h3>
+        <ul>
+          <li><a href="https://github.com/Santosdevbjj/desafioAvanadeMicroservico" target="_blank">Desafio Avanade
