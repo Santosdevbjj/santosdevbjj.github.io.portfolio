@@ -9,14 +9,15 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
       line-height: 1.6;
     }
 
     header {
-      background: rgba(0,0,0,0.6);
+      background: #ffffff;
+      border-bottom: 1px solid #eaeaea;
       padding: 1rem 2rem;
       text-align: center;
       position: sticky;
@@ -24,19 +25,20 @@
     }
 
     header h1 {
-      font-size: 2rem;
-      color: #00d9ff;
+      font-size: 1.8rem;
+      color: #222;
     }
 
     nav a {
-      color: #fff;
+      color: #555;
       margin: 0 1rem;
       text-decoration: none;
+      font-weight: 500;
       transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #00d9ff;
+      color: #007acc;
     }
 
     .hero {
@@ -44,26 +46,28 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 80vh;
+      height: 70vh;
       text-align: center;
+      padding: 2rem;
     }
 
     .hero h2 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       margin-bottom: 1rem;
-      color: #00d9ff;
+      color: #007acc;
     }
 
     .hero p {
       max-width: 600px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      color: #555;
     }
 
     .btn {
       margin-top: 2rem;
       padding: 0.8rem 1.5rem;
-      background: #00d9ff;
-      color: #000;
+      background: #007acc;
+      color: #fff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -72,49 +76,66 @@
     }
 
     .btn:hover {
-      background: #00a3cc;
+      background: #005f99;
     }
 
     section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
+      padding: 3rem 2rem;
+      max-width: 900px;
       margin: auto;
+    }
+
+    section h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.6rem;
+      color: #007acc;
+      text-align: center;
     }
 
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     .card {
-      background: rgba(255,255,255,0.1);
+      background: #fff;
       padding: 1.5rem;
-      border-radius: 10px;
-      transition: transform 0.3s, background 0.3s;
+      border-radius: 8px;
+      border: 1px solid #eaeaea;
+      transition: box-shadow 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      background: rgba(255,255,255,0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .card h3 {
       margin-bottom: 0.5rem;
-      color: #00d9ff;
+      color: #007acc;
+    }
+
+    .card p {
+      color: #555;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      background: rgba(0,0,0,0.6);
+      background: #ffffff;
+      border-top: 1px solid #eaeaea;
       margin-top: 2rem;
     }
 
     footer a {
-      color: #00d9ff;
+      color: #007acc;
       margin: 0 0.5rem;
       text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -130,7 +151,7 @@
 
   <section class="hero">
     <h2>Olá, eu sou Sergio 👋</h2>
-    <p>Desenvolvedor apaixonado por tecnologia e criação de soluções modernas. Aqui você encontra meus principais projetos e experiências.</p>
+    <p>Desenvolvedor focado em soluções simples, elegantes e eficientes. Explore meus projetos e conheça minhas habilidades.</p>
     <button class="btn">Ver Projetos</button>
   </section>
 
@@ -157,7 +178,7 @@
 
   <section id="sobre">
     <h2>👨‍💻 Sobre mim</h2>
-    <p>Sou um desenvolvedor focado em criar soluções criativas e eficientes. Tenho experiência em desenvolvimento web, mobile e integração de sistemas.</p>
+    <p>Sou um desenvolvedor apaixonado por tecnologia, com experiência em desenvolvimento web e integração de sistemas. Busco sempre criar soluções minimalistas e funcionais.</p>
   </section>
 
   <section id="contato">
