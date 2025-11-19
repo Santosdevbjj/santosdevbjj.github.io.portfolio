@@ -3,145 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio - Sergio</title>
+  <title>Portfólio Sergio Santos</title>
   <style>
-    /* Reset básico */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #eaeaea;
-      padding: 1rem 2rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-    }
-
-    header h1 {
-      font-size: 1.8rem;
-      color: #222;
-    }
-
-    nav a {
-      color: #555;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #007acc;
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 70vh;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .hero h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      color: #007acc;
-    }
-
-    .hero p {
-      max-width: 600px;
-      font-size: 1.1rem;
-      color: #555;
-    }
-
-    .btn {
-      margin-top: 2rem;
-      padding: 0.8rem 1.5rem;
-      background: #007acc;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background: #005f99;
-    }
-
-    section {
-      padding: 3rem 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    section h2 {
-      margin-bottom: 1.5rem;
-      font-size: 1.6rem;
-      color: #007acc;
-      text-align: center;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border: 1px solid #eaeaea;
-      transition: box-shadow 0.3s;
-    }
-
-    .card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .card h3 {
-      margin-bottom: 0.5rem;
-      color: #007acc;
-    }
-
-    .card p {
-      color: #555;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #ffffff;
-      border-top: 1px solid #eaeaea;
-      margin-top: 2rem;
-    }
-
-    footer a {
-      color: #007acc;
-      margin: 0 0.5rem;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
+    body { font-family: Arial, sans-serif; margin:0; background:#f9f9f9; color:#333; }
+    header { background:#007acc; color:#fff; padding:1rem; text-align:center; }
+    nav a { color:#fff; margin:0 1rem; text-decoration:none; font-weight:500; }
+    .hero { padding:3rem; text-align:center; }
+    .hero h1 { font-size:2rem; color:#007acc; }
+    .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; padding:2rem; }
+    .card { background:#fff; border:1px solid #ddd; border-radius:8px; padding:1rem; transition:0.3s; }
+    .card:hover { box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+    .card h3 { margin-bottom:0.5rem; color:#007acc; }
+    .card p { color:#555; }
+    footer { background:#007acc; color:#fff; text-align:center; padding:1rem; margin-top:2rem; }
+    footer a { color:#fff; margin:0 0.5rem; text-decoration:none; }
   </style>
 </head>
 <body>
   <header>
-    <h1>Sergio - Portfólio</h1>
+    <h1>Sergio Santos - Portfólio</h1>
     <nav>
       <a href="#projetos">Projetos</a>
       <a href="#sobre">Sobre</a>
@@ -150,44 +30,45 @@
   </header>
 
   <section class="hero">
-    <h2>Olá, eu sou Sergio 👋</h2>
-    <p>Desenvolvedor focado em soluções simples, elegantes e eficientes. Explore meus projetos e conheça minhas habilidades.</p>
-    <button class="btn">Ver Projetos</button>
+    <h1>Bem-vindo ao meu portfólio 👋</h1>
+    <p>Especialista em sistemas críticos e governança de dados, em transição para Cloud, Python e IA.</p>
   </section>
 
   <section id="projetos">
-    <h2>🚀 Projetos</h2>
+    <h2 style="text-align:center;">🚀 Projetos</h2>
     <div class="projects">
-      <div class="card">
-        <h3>Projeto 1</h3>
-        <p>Descrição breve do projeto. Tecnologias usadas: HTML, CSS, JS.</p>
-        <a href="#">Ver no GitHub</a>
-      </div>
-      <div class="card">
-        <h3>Projeto 2</h3>
-        <p>Descrição breve do projeto. Tecnologias usadas: React, Node.js.</p>
-        <a href="#">Ver no GitHub</a>
-      </div>
-      <div class="card">
-        <h3>Projeto 3</h3>
-        <p>Descrição breve do projeto. Tecnologias usadas: Python, Flask.</p>
-        <a href="#">Ver no GitHub</a>
-      </div>
+      <div class="card"><h3>01 - Java</h3><p>Projetos em Java com foco em backend e APIs.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>02 - Python</h3><p>Scripts e aplicações em Python para automação e análise de dados.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>03 - .NET C#</h3><p>Projetos em C# e .NET para aplicações corporativas.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>04 - Inteligência Artificial</h3><p>Projetos explorando IA aplicada a dados e automação.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>05 - Machine Learning</h3><p>Modelos de aprendizado de máquina para classificação e previsão.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>06 - Excel & Power BI</h3><p>Dashboards e relatórios interativos para análise de dados.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>07 - Grafos com Neo4J</h3><p>Projetos de análise de dados com grafos usando Neo4J.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>08 - Ciência de Dados</h3><p>Exploração de dados e insights com ferramentas modernas.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>09 - Cibersegurança</h3><p>Projetos voltados para segurança da informação e proteção de dados.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>10 - Azure</h3><p>Projetos de Cloud Computing com Microsoft Azure.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>11 - AWS</h3><p>Projetos de Cloud Computing com Amazon Web Services.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>12 - HTML</h3><p>Projetos básicos e avançados em HTML.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>13 - CSS</h3><p>Estilização moderna e responsiva com CSS.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>14 - JavaScript</h3><p>Projetos interativos e dinâmicos com JavaScript.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>15 - Lógica de Programação</h3><p>Exercícios e projetos de lógica e algoritmos.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>16 - Apresentação Pessoal</h3><p>Minha trajetória profissional e objetivos.</p><a href="https://github.com/Santosdevbjj/Sergiobjj" target="_blank">Ver no GitHub</a></div>
+      <div class="card"><h3>17 - LinkedIn</h3><p>Conecte-se comigo no LinkedIn.</p><a href="https://linkedin.com/in/santossergioluiz" target="_blank">Visitar LinkedIn</a></div>
     </div>
   </section>
 
-  <section id="sobre">
+  <section id="sobre" style="padding:2rem; text-align:center;">
     <h2>👨‍💻 Sobre mim</h2>
-    <p>Sou um desenvolvedor apaixonado por tecnologia, com experiência em desenvolvimento web e integração de sistemas. Busco sempre criar soluções minimalistas e funcionais.</p>
+    <p>Analista de Sistemas Sênior com experiência em sistemas críticos bancários e infraestrutura corporativa. 
+       Atualmente em transição para tecnologias modernas como Cloud, Python, IA e DevOps.</p>
   </section>
 
-  <section id="contato">
+  <section id="contato" style="padding:2rem; text-align:center;">
     <h2>📬 Contato</h2>
-    <p>Entre em contato comigo pelas redes:</p>
     <footer>
       <a href="https://github.com/Santosdevbjj" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/seuusuario" target="_blank">LinkedIn</a>
-      <a href="mailto:seuemail@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/santossergioluiz" target="_blank">LinkedIn</a>
+      <a href="mailto:santossergiorealbjj@outlook.com">Email</a>
     </footer>
   </section>
 </body>
