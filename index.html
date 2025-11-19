@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfólio Sergio Santos</title>
   <style>
     :root {
-      --bg-light: #f9f9f9;
-      --text-light: #333;
-      --muted-light: #555;
-      --primary-light: #007acc;
+      /* Tema claro */
+      --bg: #f9f9f9;
+      --text: #1f2937;
+      --muted: #4b5563;
+      --primary: #007acc;
+      --panel: #ffffff;
+      --border: #e5e7eb;
 
+      /* Tema escuro neon */
       --bg-dark: #0b1220;
-      --panel-dark: #111827;
       --text-dark: #e5e7eb;
       --muted-dark: #cbd5e1;
       --primary-dark: #00d9ff;
-      --glow-dark: 0 0 12px rgba(0, 217, 255, 0.6);
+      --panel-dark: #111827;
+      --border-dark: #1f2937;
+      --glow: 0 0 12px rgba(0, 217, 255, 0.6);
     }
 
+    * { box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: var(--bg-light);
-      color: var(--text-light);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       transition: background 0.25s ease, color 0.25s ease;
     }
 
     header {
-      background: var(--primary-light);
+      background: var(--primary);
       color: #fff;
       padding: 1rem;
       display: flex;
@@ -36,9 +42,10 @@
       justify-content: space-between;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 50;
     }
 
+    .brand { font-weight: 700; }
     nav a {
       color: #fff;
       margin: 0 0.5rem;
@@ -46,9 +53,10 @@
       font-weight: 500;
     }
 
+    .actions { display: flex; gap: 0.75rem; align-items: center; }
     .theme-toggle {
       background: #fff;
-      color: var(--primary-light);
+      color: var(--primary);
       border: none;
       padding: 0.5rem 0.9rem;
       border-radius: 6px;
@@ -59,64 +67,81 @@
     .hero {
       padding: 2.5rem 1.25rem;
       text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
     }
-    .hero h1 {
-      font-size: 2rem;
-      color: var(--primary-light);
-    }
+    .hero h1 { color: var(--primary); margin: 0 0 0.5rem; }
+    .hero p { color: var(--muted); margin: 0; }
+
+    .section-title { text-align: center; margin: 0.5rem 0 1rem; }
 
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1rem;
-      padding: 1.25rem;
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .card {
-      background: #fff;
-      border: 1px solid #e5e7eb;
+      background: var(--panel);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 1rem;
+      transition: box-shadow 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
     }
-    .card h3 { color: var(--primary-light); }
-    .card ul { padding-left: 1rem; }
-    .card li { margin-bottom: 0.4rem; }
-    .card a { color: var(--primary-light); text-decoration: none; }
+    .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .card h3 { color: var(--primary); margin-top: 0; }
+    .card p { color: var(--muted); }
+    .card ul { margin: 0.5rem 0 0; padding-left: 1.1rem; }
+    .card li { margin: 0.3rem 0; }
+    .card a { color: var(--primary); text-decoration: none; font-weight: 600; }
 
     footer {
-      background: var(--primary-light);
+      background: var(--primary);
       color: #fff;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
     }
-    footer a { color: #fff; margin: 0 0.5rem; text-decoration: none; }
+    footer a { color: #fff; margin: 0 0.5rem; text-decoration: none; font-weight: 600; }
 
     /* Tema escuro */
     body.dark {
-      background: var(--bg-dark);
+      background: linear-gradient(135deg, var(--bg-dark) 0%, #0e1a2b 50%, var(--bg-dark) 100%);
       color: var(--text-dark);
     }
-    body.dark header { background: var(--panel-dark); }
-    body.dark .theme-toggle { background: var(--primary-dark); color: #000; }
-    body.dark .hero h1 { color: var(--primary-dark); text-shadow: var(--glow-dark); }
-    body.dark .card { background: var(--panel-dark); border: 1px solid #1f2937; }
-    body.dark .card h3 { color: var(--primary-dark); text-shadow: var(--glow-dark); }
-    body.dark .card a { color: var(--primary-dark); text-shadow: var(--glow-dark); }
-    body.dark footer { background: #0b1526; }
-    body.dark footer a { color: var(--primary-dark); text-shadow: var(--glow-dark); }
+    body.dark header { background: var(--panel-dark); border-bottom: 1px solid var(--border-dark); }
+    body.dark .brand, body.dark nav a { color: var(--text-dark); }
+    body.dark .theme-toggle { background: var(--primary-dark); color: #001018; box-shadow: var(--glow); }
+
+    body.dark .hero h1 { color: var(--primary-dark); text-shadow: var(--glow); }
+    body.dark .hero p { color: var(--muted-dark); }
+
+    body.dark .card {
+      background: var(--panel-dark);
+      border: 1px solid var(--border-dark);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+    body.dark .card h3 { color: var(--primary-dark); text-shadow: var(--glow); }
+    body.dark .card p { color: var(--muted-dark); }
+    body.dark .card a { color: var(--primary-dark); text-shadow: var(--glow); }
+
+    body.dark footer { background: #0b1526; border-top: 1px solid var(--border-dark); }
+    body.dark footer a { color: var(--primary-dark); text-shadow: var(--glow); }
   </style>
 </head>
 <body>
   <header>
-    <h1>Sergio Santos - Portfólio</h1>
-    <div>
+    <div class="brand">Sergio Santos - Portfólio</div>
+    <div class="actions">
       <nav>
         <a href="#projetos">Projetos</a>
         <a href="#sobre">Sobre</a>
         <a href="#contato">Contato</a>
       </nav>
-      <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">Modo escuro</button>
+      <button class="theme-toggle" id="themeBtn" aria-label="Alternar tema">Modo escuro</button>
     </div>
   </header>
 
@@ -126,10 +151,9 @@
   </section>
 
   <section id="projetos">
-    <h2 style="text-align:center;">🚀 Projetos</h2>
+    <h2 class="section-title">🚀 Projetos</h2>
     <div class="projects">
-
-      <!-- 01 Java -->
+      <!-- 01 - Java -->
       <div class="card">
         <h3>01 - Projetos em Java</h3>
         <ul>
@@ -137,35 +161,228 @@
           <li><a href="https://github.com/Santosdevbjj/boardTarefasJava" target="_blank">Board de Tarefas Java</a></li>
           <li><a href="https://github.com/Santosdevbjj/NTTDataDesafio" target="_blank">NTT Data Desafio</a></li>
           <li><a href="https://github.com/Santosdevbjj/deployAppTonnie" target="_blank">Deploy App Tonnie</a></li>
-          <li><a href="https://github.com/Santosdevbjj/PadraoProjetoJava" target="_blank">Padrão Projeto Java</a></li>
-          <li><a href="https://github.com/Santosdevbjj/SudokuJogoJava" target="_blank">Sudoku Jogo Java</a></li>
+          <li><a href="https://github.com/Santosdevbjj/PadraoProjetoJava" target="_blank">Padrão de Projeto</a></li>
+          <li><a href="https://github.com/Santosdevbjj/SudokuJogoJava" target="_blank">Sudoku Jogo</a></li>
           <li><a href="https://github.com/Santosdevbjj/testUnitValidarApiRest" target="_blank">Testes Unitários API Rest</a></li>
           <li><a href="https://github.com/Santosdevbjj/transacaoFinanceira" target="_blank">Transação Financeira</a></li>
           <li><a href="https://github.com/Santosdevbjj/jogoDaForca" target="_blank">Jogo da Forca</a></li>
-          <li><a href="https://github.com/Santosdevbjj/pooDesafioJava" target="_blank">POO Desafio Java</a></li>
+          <li><a href="https://github.com/Santosdevbjj/pooDesafioJava" target="_blank">POO Desafio</a></li>
           <li><a href="https://github.com/Santosdevbjj/criarEbook" target="_blank">Criar Ebook</a></li>
         </ul>
       </div>
 
-      <!-- 02 Python -->
+      <!-- 02 - Python -->
       <div class="card">
         <h3>02 - Projetos em Python</h3>
         <ul>
           <li><a href="https://github.com/Santosdevbjj/apiWorkoutPython" target="_blank">API Workout Python</a></li>
-          <li><a href="https://github.com/Santosdevbjj/utilizaFerramentasGitHub" target="_blank">Utiliza Ferramentas GitHub</a></li>
+          <li><a href="https://github.com/Santosdevbjj/utilizaFerramentasGitHub" target="_blank">Ferramentas GitHub</a></li>
           <li><a href="https://github.com/Santosdevbjj/generosLiterarios" target="_blank">Gêneros Literários</a></li>
           <li><a href="https://github.com/Santosdevbjj/apiBancaria" target="_blank">API Bancária</a></li>
-          <li><a href="https://github.com/Santosdevbjj/pacoteProcessImagem" target="_blank">Pacote Processamento de Imagem</a></li>
+          <li><a href="https://github.com/Santosdevbjj/pacoteProcessImagem" target="_blank">Processamento de Imagem</a></li>
           <li><a href="https://github.com/Santosdevbjj/primeiroCopiloto" target="_blank">Primeiro Copiloto</a></li>
-          <li><a href="https://github.com/Santosdevbjj/modelaSistemaBancPOO" target="_blank">Modelagem Sistema Bancário POO</a></li>
+          <li><a href="https://github.com/Santosdevbjj/modelaSistemaBancPOO" target="_blank">Sistema Bancário POO</a></li>
           <li><a href="https://github.com/Santosdevbjj/sistemaBancario" target="_blank">Sistema Bancário</a></li>
-          <li><a href="https://github.com/Santosdevbjj/copilotoFluxoConversa" target="_blank">Copiloto Fluxo de Conversa</a></li>
-          <li><a href="https://github.com/Santosdevbjj/otimizaSistemaBancario" target="_blank">Otimização Sistema Bancário</a></li>
+          <li><a href="https://github.com/Santosdevbjj/copilotoFluxoConversa" target="_blank">Fluxo de Conversa</a></li>
+          <li><a href="https://github.com/Santosdevbjj/otimizaSistemaBancario" target="_blank">Otimização Bancária</a></li>
         </ul>
       </div>
 
-      <!-- 03 .NET C# -->
+      <!-- 03 - .NET C# -->
       <div class="card">
         <h3>03 - Projetos em .NET C#</h3>
         <ul>
-          <li><a href="https://github.com/Santosdevbjj/desafioAvanadeMicroservico" target="_blank">Desafio Avanade
+          <li><a href="https://github.com/Santosdevbjj/desafioAvanadeMicroservico" target="_blank">Desafio Avanade Microserviço</a></li>
+          <li><a href="https://github.com/Santosdevbjj/ecommerceLivrosAngular" target="_blank">E-commerce Livros Angular</a></li>
+          <li><a href="https://github.com/Santosdevbjj/stackTestesUnidIntegra" target="_blank">Stack Testes Unitários e Integração</a></li>
+          <li><a href="https://github.com/Santosdevbjj/MinimalsAPIs" target="_blank">Minimal APIs</a></li>
+          <li><a href="https://github.com/Santosdevbjj/projApiMongoDB" target="_blank">API MongoDB</a></li>
+          <li><a href="https://github.com/Santosdevbjj/razorPagesProjeto" target="_blank">Razor Pages Projeto</a></li>
+          <li><a href="https://github.com/Santosdevbjj/agendaTarefasEntFram" target="_blank">Agenda Tarefas EF</a></li>
+          <li><a href="https://github.com/Santosdevbjj/diaDiaQA" target="_blank">Dia a Dia QA</a></li>
+          <li><a href="https://github.com/Santosdevbjj/validaTesteUnitario" target="_blank">Validação Testes Unitários</a></li>
+          <li><a href="https://github.com/Santosdevbjj/dockerContainerWeb" target="_blank">Docker Container Web</a></li>
+          <li><a href="https://github.com/Santosdevbjj/calculadoraTDDTestes" target="_blank">Calculadora TDD</a></li>
+          <li><a href="https://github.com/Santosdevbjj/sistemaDeHospedagem" target="_blank">Sistema de Hospedagem</a></li>
+          <li><a href="https://github.com/Santosdevbjj/sistemaEstacionamento" target="_blank">Sistema de Estacionamento</a></li>
+          <li><a href="https://github.com/Santosdevbjj/sistemaPOOcelular" target="_blank">Sistema POO Celular</a></li>
+          <li><a href="https://github.com/Santosdevbjj/projetoSQLServer" target="_blank">Projeto SQL Server</a></li>
+          <li><a href="https://github.com/Santosdevbjj/reduzirCustosAWS" target="_blank">Reduzir Custos AWS</a></li>
+        </ul>
+      </div>
+
+      <!-- 04 - Inteligência Artificial -->
+      <div class="card">
+        <h3>04 - Inteligência Artificial</h3>
+        <ul>
+          <li><a href="https://github.com/Santosdevbjj/analiseSentimet_LanStuAz.md" target="_blank">Análise de Sentimentos (LangStudio Azure)</a></li>
+          <li><a href="https://github.com/Santosdevbjj/Sales_Insights_AI_DIO" target="_blank">Sales Insights AI</a></li>
+          <li><a href="https://github.com/Santosdevbjj/azureCognitive_dio.md" target="_blank">Azure Cognitive (DIO)</a></li>
+          <li><a href="https://github.com/Santosdevbjj/podCastIA" target="_blank">Podcast IA</a></li>
+          <li><a href="https://github.com/Santosdevbjj/dashboardVendasXbox" target="_blank">Dashboard Vendas Xbox</a></li>
+          <li><a href="https://github.com/Santosdevbjj/IntegraChatgptNodReac" target="_blank">Integração ChatGPT Node/React</a></li>
+          <li><a href="https://github.com/Santosdevbjj/recursoIAgeneratOpenAi_Dio" target="_blank">IA Generativa OpenAI (DIO)</a></li>
+          <li><a href="https://github.com/Santosdevbjj/artigoTecnico" target="_blank">Artigo Técnico</a></li>
+          <li><a href="https://github.com/Santosdevbjj/validar_BandeiraCartaoCredito" target="_blank">Validar Bandeira Cartão</a></li>
+          <li><a href="https://github.com/Santosdevbjj/bancoDadosEcommerceDio" target="_blank">Banco de Dados E-commerce (DIO)</a></li>
+          <li><a href="https://github.com/Santosdevbjj/nattyOrNot" target="_blank">Natty or Not</a></li>
+        </ul>
+      </div>
+
+      <!-- 05 - Machine Learning -->
+      <div class="card">
+        <h3>05 - Machine Learning</h3>
+        <ul>
+          <li><a href="https://github.com/Santosdevbjj/sistemRecomendaImag" target="_blank">Sistema de Recomendação de Imagens</a></li>
+          <li><a href="https://github.com/Santosdevbjj/Transfer-Learning-Project" target="_blank">Transfer Learning Project</a></li>
+          <li><a href="https://github.com/Santosdevbjj/reconheceFaceZero" target="_blank">Reconhecimento Facial Zero-shot</a></li>
+          <li><a href="https://github.com/Santosdevbjj/calculoMetricasML" target="_blank">Cálculo de Métricas ML</a></li>
+          <li><a href="https://github.com/Santosdevbjj/treinaRedeYolo" target="_blank">Treinar Rede YOLO</a></li>
+          <li><a href="https://github.com/Santosdevbjj/agenteDetector" target="_blank">Agente Detector</a></li>
+          <li><a href="https://github.com/Santosdevbjj/reduzImagensRedeNeural" target="_blank">Redução de Imagens (Rede Neural)</a></li>
+          <li><a href="https://github.com/Santosdevbjj/testUnitLcAzGpt" target="_blank">Teste Unitário LCAz + GPT</a></li>
+          <li><a href="https://github.com/Santosdevbjj/assistVirtualPLN" target="_blank">Assistente Virtual PLN</a></li>
+          <li><a href="https://github.com/Santosdevbjj/redesNeuraisTranfer" target="_blank">Redes Neurais Transfer</a></li>
+          <li><a href="https://github.com/Santosdevbjj/transfer-learning-cats-vs-dogs" target="_blank">Transfer Learning Cats vs Dogs</a></li>
+        </ul>
+      </div>
+
+      <!-- 06 - Excel & Power BI -->
+      <div class="card">
+        <h3>06 - Análise de dados com Excel e Power BI</h3>
+        <ul>
+          <li><a href="https://github.com/Santosdevbjj/relatoVendasLucros" target="_blank">Relatório de Vendas e Lucros</a></li>
+          <li><a href="https://github.com/Santosdevbjj/dashboardGerencial" target="_blank">Dashboard Gerencial</a></li>
+          <li><a href="https://github.com/Santosdevbjj/relatoDinamicoPowerBi" target="_blank">Relatório Dinâmico Power BI</a></li>
+          <li><a href="https://github.com/Santosdevbjj/dashboardStarShema" target="_blank">Dashboard Star Schema</a></li>
+          <li><a href="https://github.com/Santosdevbjj/dashboardCorporativo" target="_blank">Dashboard Corporativo</a></li>
+          <li><a href="https://github.com/Santosdevbjj/dashboardEcommerceDax" target="_blank">Dashboard E-commerce (DAX)</a></li>
+          <li><a href="https://github.com/Santosdevbjj/relatoDashVendas" target="_blank">Relatório Dash de Vendas</a></li>
+          <li><a href="https://github.com/Santosdevbjj/relatoGereVendas" target="_blank">Relatório Gerencial de Vendas</a></li>
+        </ul>
+      </div>
+
+      <!-- 07 - Neo4J Grafos -->
+      <div class="card">
+        <h3>07 - Neo4J: Análise de dados com grafos</h3>
+        <ul>
+          <li><a href="https://github.com/Santosdevbjj/modelaDadosEmGrafos" target="_blank">Modelagem de Dados em Grafos</a></li>
+        </ul>
+      </div>
+
+      <!-- 08 - Ciência de Dados -->
+      <div class="card">
+        <h3>08 - Ciência de dados</h3>
+        <p>Sem repositórios cadastrados aqui ainda. Envie os links quando desejar incluir.</p>
+      </div>
+
+      <!-- 09 - Cibersegurança -->
+      <div class="card">
+        <h3>09 - Cibersegurança</h3>
+        <ul>
+          <li><a href="https://github.com/Santosdevbjj/DesafioDioPhishing" target="_blank">Desafio DIO Phishing</a></li>
+          <li><a href="https://github.com/Santosdevbjj/desafioDioRansomware" target="_blank">Desafio DIO Ransomware</a></li>
+        </ul>
+      </div>
+
+      <!-- 10 - Azure -->
+      <div class="card">
+        <h3>10 - Azure</h3>
+        <ul>
+          <li><a href="https://github.com/Santosdevbjj/versaCodigoNotebookAzure" target="_blank">Versão Código Notebook Azure</a></li>
+          <li><a href="https://github.com/Santosdevbjj/AzureDevOpsVersiBackup" target="_blank">Azure DevOps VersiBackup</a></li>
+          <li><a href="https://github.com/Santosdevbjj/processoRedundanciaArqAzure" target="_blank">Processo Redundância Arquitetura Azure</a></li>
+          <li><a href="https://github.com/Santosdevbjj/monitoraCustosDataFactory" target="_blank">Monitora Custos Data Factory</a></li>
+        </ul>
+      </div>
+
+      <!-- 11 - AWS -->
+      <div class="card">
+        <h3>11 - Amazon AWS</h3>
+        <ul>
+          <li><a href="https://github.com/Santosdevbjj/gerenciaInstanciaEC2" target="_blank">Gerenciar Instância EC2</a></li>
+        </ul>
+      </div>
+
+      <!-- 12 - HTML -->
+      <div class="card">
+        <h3>12 - HTML</h3>
+        <p>Sem repositórios cadastrados aqui ainda. Envie os links quando desejar incluir.</p>
+      </div>
+
+      <!-- 13 - CSS -->
+      <div class="card">
+        <h3>13 - CSS</h3>
+        <p>Sem repositórios cadastrados aqui ainda. Envie os links quando desejar incluir.</p>
+      </div>
+
+      <!-- 14 - JavaScript -->
+      <div class="card">
+        <h3>14 - JavaScript</h3>
+        <p>Sem repositórios cadastrados aqui ainda. Envie os links quando desejar incluir.</p>
+      </div>
+
+      <!-- 15 - Lógica de Programação -->
+      <div class="card">
+        <h3>15 - Lógica de programação</h3>
+        <ul>
+          <li><a href="https://github.com/Santosdevbjj/nivelDeHeroi" target="_blank">Nível de Herói</a></li>
+          <li><a href="https://github.com/Santosdevbjj/partidasRankeadas" target="_blank">Partidas Ranqueadas</a></li>
+          <li><a href="https://github.com/Santosdevbjj/jogoClassesObjeto" target="_blank">Jogo com Classes e Objetos</a></li>
+        </ul>
+      </div>
+
+      <!-- 16 - Apresentação pessoal -->
+      <div class="card">
+        <h3>16 - Minha apresentação pessoal</h3>
+        <p>Deseja apontar para um repositório com currículo/apresentação? Posso incluir assim que enviar o link.</p>
+      </div>
+
+      <!-- 17 - LinkedIn -->
+      <div class="card">
+        <h3>17 - LinkedIn</h3>
+        <ul>
+          <li><a href="https://linkedin.com/in/santossergioluiz" target="_blank">Perfil no LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="hero">
+    <h2 class="section-title">👨‍💻 Sobre mim</h2>
+    <p>Analista de Sistemas Sênior com experiência em sistemas críticos bancários e infraestrutura corporativa.
+       Em transição para Cloud, Python, IA e DevOps.</p>
+  </section>
+
+  <section id="contato" class="hero">
+    <h2 class="section-title">📬 Contato</h2>
+    <footer>
+      <a href="https://github.com/Santosdevbjj" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/santossergioluiz" target="_blank">LinkedIn</a>
+      <a href="mailto:santossergiorealbjj@outlook.com">Email</a>
+    </footer>
+  </section>
+
+  <script>
+    // Inicializa tema pelo localStorage
+    (function initTheme() {
+      const saved = localStorage.getItem('theme') || 'light';
+      const isDark = saved === 'dark';
+      document.body.classList.toggle('dark', isDark);
+      updateButton(isDark);
+    })();
+
+    function updateButton(isDark) {
+      const btn = document.getElementById('themeBtn');
+      btn.textContent = isDark ? 'Modo claro' : 'Modo escuro';
+      btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    }
+
+    document.getElementById('themeBtn').addEventListener('click', function () {
+      const isDark = document.body.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateButton(isDark);
+    });
+  </script>
+</body>
+</html>
